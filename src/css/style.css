@@ -1,0 +1,111 @@
+/**
+* SETTINGS
+* Global........................ variables and config.
+*
+* GENERIC
+* normalize.css................. A level playing field.
+*
+* COMPONENTS:
+* ToDoApplication............... Main application content
+* Header........................
+* TodoContent...................
+* SideBar.......................
+*
+*/
+.size {
+  height: 100%;
+  width: 100%;
+}
+.height {
+  height: 100%;
+}
+.width {
+  width: 100%;
+}
+html,
+body {
+  margin: 0px;
+  height: 100%;
+}
+/*
+* #ToDoApplication
+*/
+#todo-home {
+  height: 100%;
+}
+#todo-home .main-bg {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+.todo-app {
+  width: 1205px;
+  height: 865px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  top: 25px;
+  background: #ffffff;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+}
+/*
+* #Header
+*/
+.todo-app .todo-header {
+  width: 100%;
+  z-index: 1;
+  height: 90px;
+  position: relative;
+  background: #f8f8f8;
+  -webkit-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
+}
+.todo-header .todo-logo {
+  height: 100%;
+  width: 336px;
+  float: left;
+  background: #eeeeee;
+}
+.todo-header .todo-logo h1 {
+  color: #4a405e;
+  font-weight: normal;
+  margin-left: 45px;
+  margin-top: 30px;
+}
+/*
+* #TodoContent
+*/
+.todo-app .todo-content {
+  height: 100%;
+  width: 100%;
+  background: #eeeeee;
+}
+/*
+* #SideBar
+*/
+.todo-side-bar {
+  height: 100%;
+  width: 338px;
+  float: left;
+}
+.todo-side-bar .todo-nav {
+  height: 100%;
+  width: 88px;
+  float: left;
+  background: #4a405e;
+  border-left: 1px solid #7e6d9f;
+}
+.todo-side-bar .todo-item-list {
+  height: 100%;
+  position: relative;
+  width: 246px;
+  float: left;
+  background: #f8f8f8;
+  border-right: 1px solid #c5c2c0;
+  -webkit-box-shadow: -3px 3px 10px -2px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: -3px 3px 10px -2px rgba(0, 0, 0, 0.5);
+  box-shadow: -3px 3px 10px -2px rgba(0, 0, 0, 0.5);
+}

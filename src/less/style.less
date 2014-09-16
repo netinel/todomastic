@@ -1,0 +1,103 @@
+/**
+* SETTINGS
+* Global........................ variables and config.
+*
+* GENERIC
+* normalize.css................. A level playing field.
+*
+* COMPONENTS:
+* ToDoApplication............... Main application content
+* Header........................
+* TodoContent...................
+* SideBar.......................
+*
+*/
+
+@import 'import/global';
+
+html, body{
+    margin: 0px;
+    .height();
+}
+
+/*
+* #ToDoApplication
+*/
+#todo-home { .height(); }
+
+#todo-home .main-bg{
+    position: fixed;
+    .size();
+}
+
+.todo-app{
+    width: 1205px;
+    height: 865px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    top: 25px;
+    background: @todo-white-color;
+    .border-radius(@todo-app-border-border-radius);
+}
+
+/*
+* #Header
+*/
+.todo-app .todo-header{
+    .width();
+    z-index: 1;
+    height: 90px;
+    position: relative;
+    background: @todo-header-color;
+    .box-shadow(@header-box-shadow);
+}
+
+.todo-header .todo-logo{
+    .height();
+    width: 336px;
+    float: left;
+    background: @todo-content-color;
+}
+
+.todo-header .todo-logo h1{
+    color: @todo-nav-bar-color;
+    font-weight: normal;
+    margin-left: 45px;
+    margin-top: 30px;
+}
+
+/*
+* #TodoContent
+*/
+.todo-app .todo-content{
+    .size();
+    background: @todo-content-color;
+}
+
+/*
+* #SideBar
+*/
+.todo-side-bar{
+    .height();
+    width: 338px;
+    float: left;
+}
+
+.todo-side-bar .todo-nav{
+    .height();
+    width: 88px;
+    float: left;
+    background: @todo-nav-bar-color;
+    border-left: @todo-todo-nav-border;
+}
+
+.todo-side-bar .todo-item-list{
+    .height();
+    position: relative;
+    width: 246px;
+    float: left;
+    background: @todo-header-color;
+    border-right: @todo-item-list-border;
+    .box-shadow(@item-list-box-shadow);
+}
