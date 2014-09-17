@@ -8,8 +8,12 @@
 * COMPONENTS:
 * ToDoApplication............... Main application content
 * Header........................
+* Search........................
+* TodoAction....................
 * TodoContent...................
 * SideBar.......................
+* NavAction.....................
+* ListElem......................
 *
 */
 .size {
@@ -21,6 +25,10 @@
 }
 .width {
   width: 100%;
+}
+.offset {
+  margin: 0px;
+  padding: 0px;
 }
 html,
 body {
@@ -76,6 +84,73 @@ body {
   margin-top: 30px;
 }
 /*
+* #Search
+*/
+.todo-header-action .todo-search {
+  float: left;
+  padding-top: 35px;
+  padding-left: 35px;
+}
+.todo-header-action .todo-search span {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  font-size: 22px;
+  color: #b1b0b3;
+  text-decoration: none;
+  line-height: 20px;
+  float: left;
+  padding-right: 10px;
+}
+.todo-header-action .todo-search input {
+  border: none;
+  margin: 0px;
+  padding: 0px;
+  font-size: 18px;
+  color: #b1b0b3;
+  float: left;
+  width: 400px;
+  background: #f8f8f8;
+}
+.todo-header-action .todo-search input:focus {
+  outline: 0;
+}
+/*
+* #TodoAction
+*/
+.todo-header-action .todo-action {
+  float: right;
+}
+.todo-header-action .todo-action ul {
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  list-style-type: none;
+}
+.todo-header-action .todo-action ul li {
+  float: left;
+  border-left: 1px solid #b1b0b3;
+}
+.todo-header-action .todo-action ul a {
+  display: block;
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  font-size: 32px;
+  color: #4a405e;
+  text-align: center;
+  text-decoration: none;
+  padding: 28px;
+  line-height: 34px;
+}
+.todo-header-action .todo-action ul a:hover {
+  background: #eeeeee;
+}
+/*
 * #TodoContent
 */
 .todo-app .todo-content {
@@ -108,4 +183,92 @@ body {
   -webkit-box-shadow: -3px 3px 10px -2px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: -3px 3px 10px -2px rgba(0, 0, 0, 0.5);
   box-shadow: -3px 3px 10px -2px rgba(0, 0, 0, 0.5);
+}
+/*
+* #NavAction
+*/
+.todo-nav .todo-nav-action {
+  margin: 0px;
+  padding: 0px;
+  padding-top: 10px;
+}
+.todo-nav .todo-nav-action li {
+  border-bottom: 2px solid #413a50;
+  line-height: 0px;
+  overflow: hidden;
+}
+.todo-nav .todo-nav-action a {
+  display: block;
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  font-size: 32px;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  padding-top: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #584b73;
+  line-height: 24px;
+}
+.todo-nav .todo-nav-action a:hover {
+  background-color: #241d34;
+}
+.todo-nav .todo-nav-action div.user-icon {
+  width: 76px;
+  height: 76px;
+  margin: auto;
+  padding-bottom: 10px;
+  -webkit-border-radius: 45px;
+  -moz-border-radius: 45px;
+  border-radius: 45px;
+}
+.todo-nav .todo-nav-action div.user-icon img {
+  float: left;
+}
+/*
+* #ListElem
+*/
+.todo-item-list .todo-list-elem {
+  padding-left: 26px;
+  padding-right: 20px;
+  padding-top: 10px;
+}
+.todo-item-list .todo-list-elem span.hide-list {
+  display: none;
+}
+.todo-item-list .todo-list-elem ul {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+  padding-top: 8px;
+  display: none;
+}
+.todo-item-list .todo-list-elem ul li {
+  color: #938ca0;
+  font-size: 14px;
+  padding-top: 4px;
+  cursor: pointer;
+}
+.todo-item-list .todo-list-elem a {
+  text-decoration: none;
+  color: #4a405e;
+  font-size: 18px;
+  display: block;
+  font-family: "Arial Black", Gadget, sans-serif;
+}
+.todo-item-list .todo-list-elem a span {
+  font-family: 'icomoon';
+  float: right;
+}
+.todo-item-list .todo-list-show span.show-list {
+  display: none;
+}
+.todo-item-list .todo-list-show span.hide-list {
+  display: block;
+}
+.todo-item-list .todo-list-show ul {
+  display: block;
 }
