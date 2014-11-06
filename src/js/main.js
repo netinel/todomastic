@@ -8,7 +8,8 @@ var UITools = {
 
         $cache: {
             listElem: '',
-            listElemBtn: ''
+            listElemBtn: '',
+            createdItem: ''
         },
 
         event: function(){
@@ -23,6 +24,7 @@ var UITools = {
         init: function(){
             this.$cache.listElem = $('.todo-list-elem');
             this.$cache.listElemBtn = this.$cache.listElem.find('a');
+            this.$cache.createdItem = $('.create-new-btn');
             this.event();
         }
 
@@ -34,4 +36,5 @@ $(function(){
 
     UITools.TodoList.init();
 
+    Backbone.history.start();
 });

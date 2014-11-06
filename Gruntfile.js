@@ -68,7 +68,9 @@ module.exports = function (grunt) {
                     destPrefix: 'src/js/libs'
                 },
                 files: {
-                    'jquery.js': 'jquery/dist/jquery.js'
+                    'jquery.js': 'jquery/dist/jquery.js',
+                    'backbone.js': 'backbone/backbone.js',
+                    'underscore.js': 'underscore/underscore.js'
                 }
             },
 
