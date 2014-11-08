@@ -8,14 +8,18 @@
     <script src="src/js/libs/jquery.js" type="text/javascript"></script>
     <script src="src/js/libs/underscore.js" type="text/javascript"></script>
     <script src="src/js/libs/backbone.js" type="text/javascript"></script>
-    <script src="src/js/routers/router.js" type="text/javascript"></script>
-    <script src="src/js/todoMastic.js" type="text/javascript"></script>
-    <script src="src/js/main.js" type="text/javascript"></script>
-    <script type="text/template" id="todo-group">
-        <a href="#"><%= title %><span class="show-list">+</span><span class="hide-list">-</span></a>
-    </script>
 </head>
 <body>
+    <script type="text/template" id="todo-tag">
+        <div class="todo-list-elem">
+            <a href="#"><%= tagTitle %><span class="show-list">+</span><span class="hide-list">-</span></a>
+            <ul>
+                <% _.each(list, function(listItem){%>
+                    <li id="todo-<%= listItem.id %>"><%= listItem.title %></li>
+                <% })%>
+            </ul>
+        </div>
+    </script>
     <div id="todo-home">
         <img src="src/img/main-conten-bg.jpg" class="main-bg">
         <div class="todo-app">
@@ -45,35 +49,17 @@
                             <li><a href="#settings">s</a></li>
                         </ul>
                     </div>
-                    <div class="todo-item-list">
-                        <div class="todo-list-elem">
-                            <a href="#">Products<span class="show-list">+</span><span class="hide-list">-</span></a>
-                            <ul>
-                                <li>ToDo application</li>
-                                <li>OneBackend SDK</li>
-                                <li>Mobile apps</li>
-                            </ul>
-                        </div>
-                        <div class="todo-list-elem">
-                            <a href="#">UI Design<span class="show-list">+</span><span class="hide-list">-</span></a>
-                            <ul>
-                                <li>ToDo application</li>
-                                <li>OneBackend SDK</li>
-                                <li>Mobile apps</li>
-                            </ul>
-                        </div>
-                        <div class="todo-list-elem">
-                            <a href="#">Backend<span class="show-list">+</span><span class="hide-list">-</span></a>
-                            <ul>
-                                <li>ToDo application</li>
-                                <li>OneBackend SDK</li>
-                                <li>Mobile apps</li>
-                            </ul>
-                        </div>
-                    </div>
+                    <div class="todo-item-list" id="todo-list"></div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="src/js/routers/router.js" type="text/javascript"></script>
+    <script src="src/js/models/todoTag.js" type="text/javascript"></script>
+    <script src="src/js/collections/todoTags.js" type="text/javascript"></script>
+    <script src="src/js/views/todoTags.js" type="text/javascript"></script>
+    <script src="src/js/views/todoTag.js" type="text/javascript"></script>
+    <script src="src/js/todoMastic.js" type="text/javascript"></script>
+    <script src="src/js/main.js" type="text/javascript"></script>
 </body>
 </html>
