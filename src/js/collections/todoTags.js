@@ -16,7 +16,7 @@ var todoMastic = todoMastic || {};
                     title: 'TodoApplication'
                 },
                 {
-                    id: 2,
+                    id: 1,
                     title: 'Onebackend SDK'
                 },
                 {
@@ -34,7 +34,7 @@ var todoMastic = todoMastic || {};
                     title: 'TodoApplication'
                 },
                 {
-                    id: 2,
+                    id: 1,
                     title: 'Onebackend SDK'
                 },
                 {
@@ -52,7 +52,7 @@ var todoMastic = todoMastic || {};
                     title: 'TodoApplication'
                 },
                 {
-                    id: 2,
+                    id: 1,
                     title: 'Onebackend SDK'
                 },
                 {

@@ -24,7 +24,7 @@ var todoMastic = todoMastic || {};
         },
 
         showNote: function(id){
-
+            console.log('showNote');
         },
 
         showTodo: function(id){

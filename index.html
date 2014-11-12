@@ -12,7 +12,7 @@
 <body>
     <script type="text/template" id="todo-tag">
         <div class="todo-list-elem">
-            <a href="#"><%= tagTitle %><span class="show-list">+</span><span class="hide-list">-</span></a>
+            <a href="#" class="list-item"><%= tagTitle %><span class="show-list">+</span><span class="hide-list">-</span></a>
             <ul>
                 <% _.each(list, function(listItem){%>
                     <li id="todo-<%= listItem.id %>"><%= listItem.title %></li>

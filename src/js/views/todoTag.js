@@ -10,7 +10,8 @@ todoMastic.collections = todoMastic.collections || {};
         template: _.template($('#todo-tag').html()),
 
         events: {
-            'click a': 'showItem'
+            'click a.list-item'   : 'showItem',
+            'click li'  : 'viewNote'
         },
 
         render: function() {
@@ -25,6 +26,13 @@ todoMastic.collections = todoMastic.collections || {};
             event.preventDefault();
             this.$el.toggleClass('todo-list-show');
 
+        },
+
+        viewNote: function(event){
+
+            var route = 'note/' + $(event.target).attr('id');
+            todoMastic.TodoRouter.navigate(route, {trigger: true});
+            
         }
 
     });
