@@ -9,10 +9,21 @@ todoMastic.collections = todoMastic.collections || {};
 
         template: _.template($('#todo-tag').html()),
 
+        events: {
+            'click a': 'showItem'
+        },
+
         render: function() {
 
             this.$el.html(this.template(this.model.toJSON()));
             return this;
+
+        },
+
+        showItem: function(event){
+
+            event.preventDefault();
+            this.$el.toggleClass('todo-list-show');
 
         }
 
