@@ -20,6 +20,18 @@
             </ul>
         </div>
     </script>
+    <script type="text/template" id="new-note">
+        <div class="new-note-content">
+            <p>New note</p>
+            <div class="note-content">
+                <input type="text" class="note-title">
+                <select class="note-tag">
+                    <option>Select note tag</option>
+                </select>
+                <textarea class="note-message"></textarea>
+            </div>
+        </div>
+    </script>
     <div id="todo-home">
         <img src="src/img/main-conten-bg.jpg" class="main-bg">
         <div class="todo-app">
@@ -49,7 +61,12 @@
                             <li><a href="#settings">s</a></li>
                         </ul>
                     </div>
-                    <div class="todo-item-list" id="todo-list"></div>
+                    <div class="todo-item-list" id="todo-list">
+                        <div><a href="#new-note">New note</a></div>
+                    </div>
+                </div>
+                <div class="todo-main-content">
+
                 </div>
             </div>
         </div>
@@ -61,6 +78,7 @@
     <script src="src/js/views/todoTags.js" type="text/javascript"></script>
     <script src="src/js/views/todoTag.js" type="text/javascript"></script>
     <script src="src/js/views/navigation.js" type="text/javascript"></script>
+    <script src="src/js/views/newNote.js" type="text/javascript"></script>
     <script src="src/js/todoMastic.js" type="text/javascript"></script>
     <script src="src/js/main.js" type="text/javascript"></script>
 </body>

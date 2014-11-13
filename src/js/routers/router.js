@@ -36,7 +36,7 @@ var todoMastic = todoMastic || {};
         },
 
         newNote: function(){
-
+            todoMastic.events.trigger('crateNewNote:show');
         },
 
         newTodo: function(){

@@ -32,7 +32,7 @@ todoMastic.collections = todoMastic.collections || {};
 
             var route = 'note/' + $(event.target).attr('id');
             todoMastic.TodoRouter.navigate(route, {trigger: true});
-            
+
         }
 
     });
