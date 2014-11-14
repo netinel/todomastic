@@ -1,6 +1,5 @@
-/**
- * Created by Dmytro on 17.09.2014.
- */
+var todoMastic = todoMastic || {};
+todoMastic.actionType = '';
 
 var UITools = {
 

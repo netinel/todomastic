@@ -16,10 +16,6 @@ todoMastic.events = todoMastic.events || {};
 
         template: _.template($('#new-note').html()),
 
-        events: {
-
-        },
-
         render: function(){
 
             this.$el.html(this.template());

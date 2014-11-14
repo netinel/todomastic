@@ -10,8 +10,8 @@ todoMastic.collections = todoMastic.collections || {};
         template: _.template($('#todo-tag').html()),
 
         events: {
-            'click a.list-item'   : 'showItem',
-            'click li'  : 'viewNote'
+            'click a.list-item' : 'showItem',
+            'click li' : 'viewNote'
         },
 
         render: function() {

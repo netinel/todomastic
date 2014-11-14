@@ -16,19 +16,19 @@ var todoMastic = todoMastic || {};
         },
 
         note: function(){
-            $('.create-new-btn').attr('href', '#new-note');
+            todoMastic.actionType = 'Note';
         },
 
         todo: function(){
-            $('.create-new-btn').attr('href', '#new-todo');
+            todoMastic.actionType = 'Todo';
         },
 
         showNote: function(id){
-            console.log('showNote');
+            todoMastic.actionType = 'Note';
         },
 
         showTodo: function(id){
-
+            todoMastic.actionType = 'Todo';
         },
 
         settings: function(){
