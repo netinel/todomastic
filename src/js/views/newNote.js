@@ -14,6 +14,10 @@ todoMastic.events = todoMastic.events || {};
 
         },
 
+        events: {
+            'click .save' : 'save'
+        },
+
         template: _.template($('#new-note').html()),
 
         render: function(){
@@ -26,6 +30,10 @@ todoMastic.events = todoMastic.events || {};
         show: function(){
 
             $('.todo-main-content').html(this.render().el);
+
+        },
+
+        save: function(){
 
         }
 
