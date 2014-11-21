@@ -30,6 +30,7 @@ todoMastic.events = todoMastic.events || {};
         show: function(){
 
             $('.todo-main-content').html(this.render().el);
+            $('.note-message').jqte();
 
         },
 

@@ -272,3 +272,73 @@ body {
 .todo-item-list .todo-list-show ul {
   display: block;
 }
+
+/*
+* #MainContent
+*/
+.todo-main-content{
+  float: right;
+  width: 865px;
+}
+
+.new-note-content{
+  padding: 30px;
+}
+
+.new-note-content .note-title-bar{
+  background: #ffffff;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+.new-note-content .note-title{
+  float: left;
+  padding: 30px;
+  width: 635px;
+  padding-top: 25px;
+  padding-bottom: 22px;
+}
+
+.new-note-content .note-title input{
+  border: none;
+  color: #a9a9a9;
+  font-size: 18px;
+  margin: 0px;
+  padding: 0px;
+  outline: none;
+  width: 100%;
+}
+
+.new-note-content .note-creation-date{
+  float: right;
+  width: 108px;
+  background: #f8f8f8;
+}
+
+.new-note-content .note-creation-date span.day{
+  color: #4a405e;
+  font-size: 24px;
+  width: 100%;
+  text-align: center;
+  display: block;
+  padding-top: 12px;
+}
+
+.new-note-content .note-creation-date span.month-year{
+  color: #4a405e;
+  font-size: 14px;
+  width: 100%;
+  text-align: center;
+  display: block;
+  padding-bottom: 12px;
+}
+
+.note-content{
+  background: #ffffff;
+}
+
+.note-content .jqte_editor{
+  height: 570px;
+  max-height: 570px;
+  resize: none;
+}
