@@ -294,7 +294,7 @@ body {
 .new-note-content .note-title{
   float: left;
   padding: 30px;
-  width: 635px;
+  width: 486px;
   padding-top: 25px;
   padding-bottom: 22px;
 }
@@ -341,4 +341,18 @@ body {
   height: 570px;
   max-height: 570px;
   resize: none;
+}
+
+.note-title-bar .current-tag{
+  width: 150px;
+  background: #f8f8f8;
+  float: left;
+  border-right: 1px solid #b1b0b3;
+  padding-top: 23px;
+  padding-bottom: 23px;
+}
+
+.note-title-bar .current-tag select{
+  margin: auto;
+  display: block;
 }
