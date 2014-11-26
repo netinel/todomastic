@@ -13,7 +13,9 @@ todoMastic.collections = todoMastic.collections || {};
             tagId: '',
             content: '',
             creationDate: ''
-        }
+        },
+
+            url: 'http://api.onebackend.com/event'
 
     });
 

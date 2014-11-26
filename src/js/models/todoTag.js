@@ -9,7 +9,7 @@ todoMastic.collections = todoMastic.collections || {};
 
         defaults: {
             id: 0,
-            tagTitle: 'Title',
+            name: 'Title',
             list: []
         }
 
