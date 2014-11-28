@@ -19,27 +19,26 @@ var todoMastic = todoMastic || {};
     });
 
     todoMastic.todoTagsCollection = new TodoTags();
-    todoMastic.todoTagsCollection.fetch({reset: true});
 
-    /*todoMastic.todoTagsCollection = new TodoTags([
-        {
-            id: 0,
-            tagTitle: 'Products',
-            list: [
-                {
-                    id: 0,
-                    title: 'TodoApplication'
-                },
-                {
-                    id: 1,
-                    title: 'Onebackend SDK'
-                },
-                {
-                    id: 2,
-                    title: 'Mobile application'
-                }
-            ]
+    todoMastic.todoTagsCollection.fetch({
+        reset: false,
+        success: function(){
+            $.ajax({
+                url: 'http://api.onebackend.com/index/notestag'
+            }).done(function(data){
+
+                todoMastic.todoTagsCollection.each(function(model){
+
+                    model.set('list', _.where(data, {
+                        tagId: model.get('id')
+                    }));
+
+                });
+
+                todoMastic.tagView.render();
+
+            });
         }
-    ]);*/
+    });
 
 })();

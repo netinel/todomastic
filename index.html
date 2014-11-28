@@ -22,7 +22,7 @@
             <a href="#" class="list-item"><%= name %><span class="show-list">+</span><span class="hide-list">-</span></a>
             <ul>
                 <% _.each(list, function(listItem){%>
-                    <li id="todo-<%= listItem.id %>"><%= listItem.title %></li>
+                    <li id="<%= listItem.noteId %>"><%= listItem.title %></li>
                 <% })%>
             </ul>
         </div>

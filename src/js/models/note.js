@@ -11,11 +11,11 @@ todoMastic.collections = todoMastic.collections || {};
             id: 0,
             title: '',
             tagId: '',
-            content: '',
-            creationDate: ''
+            note: '',
+            date: ''
         },
 
-            url: 'http://api.onebackend.com/event'
+        urlRoot: 'http://api.onebackend.com/entity/note/'
 
     });
 
