@@ -176,7 +176,8 @@ body {
 .todo-side-bar .todo-item-list {
   height: 100%;
   position: relative;
-  width: 246px;
+  width: 0px;
+  overflow: hidden;
   float: left;
   background: #f8f8f8;
   border-right: 1px solid #c5c2c0;
@@ -214,6 +215,9 @@ body {
   line-height: 24px;
 }
 .todo-nav .todo-nav-action a:hover {
+  background-color: #241d34;
+}
+.todo-nav .todo-nav-action a.active {
   background-color: #241d34;
 }
 .todo-nav .todo-nav-action div.user-icon {

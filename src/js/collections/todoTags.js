@@ -14,15 +14,12 @@ var todoMastic = todoMastic || {};
                 todoMastic.tagView.render();
             });
 
-        }
+            todoMastic.events.on('showTags:show', this.show, this);
 
-    });
+        },
 
-    todoMastic.todoTagsCollection = new TodoTags();
+        initializeNotes: function(){
 
-    todoMastic.todoTagsCollection.fetch({
-        reset: false,
-        success: function(){
             $.ajax({
                 url: 'http://api.onebackend.com/index/notestag'
             }).done(function(data){
@@ -38,7 +35,22 @@ var todoMastic = todoMastic || {};
                 todoMastic.tagView.render();
 
             });
+
+        },
+
+        show: function(){
+
+            this.fetch({
+                reset: false,
+                success: function(){
+                    todoMastic.todoTagsCollection.initializeNotes();
+                }
+            });
+
         }
+
     });
+
+    todoMastic.todoTagsCollection = new TodoTags();
 
 })();

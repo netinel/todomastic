@@ -10,6 +10,9 @@ todoMastic.collections = todoMastic.collections || {};
         el: "#todo-list",
 
         render: function() {
+
+            this.$el.empty();
+
             this.collection.each(function(tagLineItem){
 
                 var modelView = new todoMastic.views.todoTagView({model: tagLineItem});

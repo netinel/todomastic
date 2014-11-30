@@ -12,14 +12,19 @@ var todoMastic = todoMastic || {};
             "settings": "settings",
             "new-note": "newNote",
             "new-todo": "newTodo",
-            "": "note"
+            "": "home"
         },
 
         note: function(){
+            todoMastic.events.trigger('activeTab:active', 0);
+            todoMastic.events.trigger('showTags:show');
+            UITools.showSideBar(function(){});
             todoMastic.actionType = 'Note';
         },
 
         todo: function(){
+            todoMastic.events.trigger('activeTab:active', 1);
+            UITools.showSideBar(function(){});
             todoMastic.actionType = 'Todo';
         },
 
@@ -32,7 +37,9 @@ var todoMastic = todoMastic || {};
         },
 
         settings: function(){
-
+            todoMastic.events.trigger('activeTab:active', 2);
+            UITools.showSideBar(function(){});
+            todoMastic.actionType = 'Settings';
         },
 
         newNote: function(){
@@ -40,6 +47,10 @@ var todoMastic = todoMastic || {};
         },
 
         newTodo: function(){
+
+        },
+
+        home: function(){
 
         }
 

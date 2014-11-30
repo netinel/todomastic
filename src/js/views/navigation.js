@@ -11,9 +11,20 @@ todoMastic.events = todoMastic.events || {};
         el: '#todo-nav',
 
         initialize: function(){
+            
+            todoMastic.events.on('activeTab:active', this.active, this);
 
+        },
+
+        active: function(tabIndex){
+            var $tabs = this.$el.find('li a');
+            $tabs.removeClass('active');
+            $tabs.eq(tabIndex).addClass('active');
         }
 
-    })
+    });
+
+    todoMastic.views.navigationView = navigationView;
+    todoMastic.views.navigationView = new navigationView();
 
 }());

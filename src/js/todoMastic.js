@@ -4,5 +4,5 @@ todoMastic.views = todoMastic.views || {};
 todoMastic.collections = todoMastic.collections || {};
 
 $(document).ready(function(){
-    todoMastic.tagView.render();
+    // todoMastic.tagView.render();
 });
