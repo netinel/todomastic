@@ -276,6 +276,27 @@ body {
   display: block;
 }
 
+.add-new-tag{
+  display: block;
+  text-decoration: none;
+  padding: 8px;
+  border: 1px solid #4a405e;
+  text: #4a405e;
+  text-align: center;
+  width: 190px;
+  margin: auto;
+  border-radius: 4px;
+}
+
+.add-new-tag:hover{
+  background: #4a405e;
+  color: #ffffff;
+}
+
+.tag-content{
+  padding-bottom: 15px;
+}
+
 /*
 * #MainContent
 */
@@ -283,6 +304,10 @@ body {
   float: right;
   width: 865px;
 }
+
+/*
+* #NewNote
+*/
 
 .new-note-content{
   padding: 30px;
@@ -358,4 +383,29 @@ body {
 .note-title-bar .current-tag select{
   margin: auto;
   display: block;
+}
+
+.new-note-btn{
+  display: none;
+}
+
+/*
+* #NewTag
+*/
+.overlay-view{
+  background-color: rgba(61, 47, 61, 0.5);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.new-tag-form{
+  position: absolute;
+  width: 350px;
+  height: 150px;
+  background: #ffffff;
+  border-radius: 4px;
 }

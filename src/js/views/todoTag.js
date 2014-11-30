@@ -9,6 +9,8 @@ todoMastic.collections = todoMastic.collections || {};
 
         template: _.template($('#todo-tag').html()),
 
+        className: 'tag-node',
+
         events: {
             'click a.list-item' : 'showItem',
             'click li' : 'viewNote'

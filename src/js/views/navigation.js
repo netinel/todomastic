@@ -17,9 +17,11 @@ todoMastic.events = todoMastic.events || {};
         },
 
         active: function(tabIndex){
+
             var $tabs = this.$el.find('li a');
             $tabs.removeClass('active');
             $tabs.eq(tabIndex).addClass('active');
+
         }
 
     });

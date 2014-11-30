@@ -10,7 +10,7 @@ var todoMastic = todoMastic || {};
 
         initialize: function(){
 
-            this.on('reset', function(event){
+            this.on('reset add', function(event){
                 todoMastic.tagView.render();
             });
 
