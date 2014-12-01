@@ -16,9 +16,12 @@ todoMastic.collections = todoMastic.collections || {};
             this.on('render', function(){
                 var currentThis = this;
 
-                setTimeout(function(){
+                var $popup = this.$el.find('.new-tag-form');
+
+                this.$el.fadeIn(500, function(){
+                    $popup.css('opacity', 1);
                     currentThis.setCenter();
-                }, 0);
+                });
 
             });
 
@@ -40,6 +43,9 @@ todoMastic.collections = todoMastic.collections || {};
 
         cancel: function(event){
             event.preventDefault();
+            this.undelegateEvents();
+            this.$el.removeData().unbind();
+            this.remove();
         },
 
         setCenter: function(){
@@ -59,7 +65,6 @@ todoMastic.collections = todoMastic.collections || {};
             event.preventDefault();
             this.model.set({'id': new Date().getTime()});
             todoMastic.todoTagsCollection.push(this.model);
-            console.log(this.$el)
             this.$el.fadeOut(300, function(){$(this).remove();})
         }
 

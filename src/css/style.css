@@ -404,8 +404,57 @@ body {
 
 .new-tag-form{
   position: absolute;
+  opacity: 0;
   width: 350px;
-  height: 150px;
+  height: 124px;
   background: #ffffff;
   border-radius: 4px;
+}
+
+.close-popup{
+  background: url("../img/close-button.png") #ffffff 0 0 no-repeat;
+  border-radius: 12px;
+  display: block;
+  height: 24px;
+  width: 24px;
+  position: absolute;
+  right: -12px;
+  top: -12px;
+}
+
+.popup-content{
+  padding: 20px;
+}
+
+.popup-content input{
+  margin: 0px;
+  margin-bottom: 15px;
+  padding: 5px;
+  font-size: 18px;
+  color: #b1b0b3;
+  float: left;
+  border: 1px #b1b0b3 solid;
+  width: 298px;
+}
+
+.popup-content input:focus {
+  outline: 0;
+}
+
+.popup-content button{
+  display: block;
+  text-decoration: none;
+  padding: 8px;
+  border: 1px solid #4a405e;
+  background: #ffffff;
+  text: #4a405e;
+  text-align: center;
+  width: 310px;
+  margin: auto;
+  border-radius: 4px;
+}
+
+.popup-content button:hover{
+  background: #4a405e;
+  color: #ffffff;
 }
