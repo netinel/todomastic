@@ -10,6 +10,7 @@ todoMastic.events = todoMastic.events || {};
 
         initialize: function(){
 
+            _.bindAll(this, "show");
             todoMastic.events.on('crateNewNote:show', this.show, this);
             todoMastic.events.on('showNote:load', this.load, this);
 
@@ -23,7 +24,7 @@ todoMastic.events = todoMastic.events || {};
 
         render: function(){
 
-            this.$el.html(this.template());
+            this.$el.html(this.template(this.model.toJSON()));
             return this;
 
         },
@@ -38,7 +39,11 @@ todoMastic.events = todoMastic.events || {};
         load: function(noteId){
 
             this.model = new todoMastic.models.note({id: noteId});
-            this.model.fetch();
+            //console.log(this);
+            this.model.fetch({
+                success: this.show
+            });
+            //console.log(this.model.toJSON());
             this.show();
 
         },

@@ -42,23 +42,24 @@
         <div class="new-note-content">
             <div class="note-title-bar">
                 <div class="note-title">
-                    <input type="text" placeholder="New note">
+                    <input type="text" placeholder="New note" value="<%= title %>">
                 </div>
                 <div class="current-tag">
-                    <select class="note-tag">
+                    <select class="note-tag" data-tagid="<%= tagId %>">
                         <option>Select note tag</option>
                     </select>
                 </div>
                 <div class="note-creation-date">
-                    <span class="day">24</span>
-                    <span class="month-year">11/2014</span>
+                    <% var noteData = new Date(parseInt(date)); %>
+                    <span class="day"><%= noteData.getDate() %></span>
+                    <span class="month-year"><%= (noteData.getMonth() + 1) %>/<%= noteData.getFullYear() %></span>
                 </div>
             </div>
             <div class="note-content">
-                <textarea class="note-message"></textarea>
+                <textarea class="note-message"><%= note %></textarea>
             </div>
             <div>
-                <button class="save">Save</button>
+                <button class="save" id="<%= id %>">Save</button>
             </div>
         </div>
     </script>
