@@ -12,6 +12,17 @@
     <script src="src/js/libs/jquery-te-1.4.0.js" type="text/javascript"></script>
 </head>
 <body>
+    <script type="text/template" id="tags-list">
+        <select class="note-tag" id="<%= tag %>">
+            <% _.each(list, function(listItem){%>
+                <% if(listItem.id == tag) {%>
+                    <option id="<%= listItem.id %>" selected><%= listItem.name %></option>
+                <% } else {%>
+                    <option id="<%= listItem.id %>"><%= listItem.name %></option>
+                <% }%>
+            <% })%>
+        </select>
+    </script>
     <script type="text/template" id="new-tag">
         <div class="new-tag-form">
             <a href="" class="close-popup"></a>
@@ -118,6 +129,7 @@
     <script src="src/js/views/notes.js" type="text/javascript"></script>
     <script src="src/js/views/note.js" type="text/javascript"></script>
     <script src="src/js/views/newTag.js" type="text/javascript"></script>
+    <script src="src/js/views/tagList.js" type="text/javascript"></script>
     <script src="src/js/todoMastic.js" type="text/javascript"></script>
     <script src="src/js/main.js" type="text/javascript"></script>
 </body>

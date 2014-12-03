@@ -39,12 +39,9 @@ todoMastic.events = todoMastic.events || {};
         load: function(noteId){
 
             this.model = new todoMastic.models.note({id: noteId});
-            //console.log(this);
             this.model.fetch({
                 success: this.show
             });
-            //console.log(this.model.toJSON());
-            this.show();
 
         },
 
