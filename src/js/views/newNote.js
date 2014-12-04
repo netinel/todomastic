@@ -34,7 +34,7 @@ todoMastic.events = todoMastic.events || {};
 
             $('.todo-main-content').html(this.render().el);
             $('.note-message').jqte();
-
+            this.addTags();
         },
 
         load: function(noteId){
@@ -47,7 +47,8 @@ todoMastic.events = todoMastic.events || {};
         },
 
         addTags: function(){
-            var tags = new todoMastic.tagsListView({collection: todoMastic.todoTagsCollection, currentTagid: this.model.get('tagId')});
+            var tagId = this.model.get('tagId') || 0;
+            var tags = new todoMastic.tagsListView({collection: todoMastic.todoTagsCollection, currentTagid: tagId});
             this.$el.find('.note-tag').replaceWith(tags.render().el.childNodes);
         },
 
@@ -58,6 +59,6 @@ todoMastic.events = todoMastic.events || {};
     });
 
     todoMastic.views.newNoteView = newNoteView;
-    todoMastic.views.newNoteView = new newNoteView();
+    todoMastic.views.noteView = new newNoteView({model: todoMastic.note});
 
 }());

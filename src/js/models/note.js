@@ -12,7 +12,7 @@ todoMastic.collections = todoMastic.collections || {};
             title: '',
             tagId: '',
             note: '',
-            date: ''
+            date: new Date().getTime()
         },
 
         urlRoot: 'http://api.onebackend.com/entity/note/'

@@ -47,11 +47,15 @@ var todoMastic = todoMastic || {};
         },
 
         newNote: function(){
+            todoMastic.events.trigger('activeTab:active', 0);
+            todoMastic.events.trigger('showTags:show');
+            UITools.showSideBar(function(){});
+            todoMastic.actionType = 'Note';
             todoMastic.events.trigger('crateNewNote:show');
         },
 
         newTodo: function(){
-
+            todoMastic.actionType = 'Todo';
         },
 
         home: function(){
