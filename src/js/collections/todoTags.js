@@ -12,6 +12,7 @@ var todoMastic = todoMastic || {};
 
             this.on('reset add', function(event){
                 todoMastic.tagView.render();
+                todoMastic.events.trigger('showTags:add');
             });
 
             todoMastic.events.on('showTags:show', this.show, this);

@@ -29,7 +29,6 @@ todoMastic.collections = todoMastic.collections || {};
             });
 
             this.$el.html(this.template(tagsList));
-            //new todoMastic.tagsListView({collection: todoMastic.todoTagsCollection, currentTagid: 1416864507051});
 
             return this;
 

@@ -13,6 +13,7 @@ todoMastic.events = todoMastic.events || {};
             _.bindAll(this, "show");
             todoMastic.events.on('crateNewNote:show', this.show, this);
             todoMastic.events.on('showNote:load', this.load, this);
+            todoMastic.events.on('showTags:add', this.addTags, this);
 
         },
 
@@ -43,6 +44,11 @@ todoMastic.events = todoMastic.events || {};
                 success: this.show
             });
 
+        },
+
+        addTags: function(){
+            var tags = new todoMastic.tagsListView({collection: todoMastic.todoTagsCollection, currentTagid: this.model.get('tagId')});
+            this.$el.find('.note-tag').replaceWith(tags.render().el.childNodes);
         },
 
         save: function(){
