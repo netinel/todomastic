@@ -7,13 +7,23 @@ todoMastic.collections = todoMastic.collections || {};
 
     var notesView = Backbone.View.extend({
 
-        el: "#main-content",
+        el: _.template($('#notes-list').html()),
+
+        initialize: function(option){
+
+            this.tagId = option.tagId;
+            _.bindAll(this, "render");
+
+        },
 
         render: function() {
-            this.collection.each(function(noteLineItem){
+
+            var tagId = this.tagId;
+
+            _.each(this.collection.getNotesByTagId(tagId), function(noteLineItem){
 
                 var modelView = new todoMastic.views.note({model: noteLineItem});
-                this.$el.append(modelView.render().el);
+                this.$el.append(modelView.render().el.childNodes);
 
             }, this);
 
@@ -21,6 +31,7 @@ todoMastic.collections = todoMastic.collections || {};
         }
     });
 
-    todoMastic.notesView = new notesView({collection: todoMastic.notesCollection});
+    todoMastic.views.notesView = notesView;
+    //todoMastic.notesView = new notesView({collection: todoMastic.notes});
 
 }());

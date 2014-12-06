@@ -63,9 +63,13 @@ todoMastic.collections = todoMastic.collections || {};
 
         addTag: function(event){
             event.preventDefault();
+
             this.model.set({'id': new Date().getTime()});
             todoMastic.todoTagsCollection.push(this.model);
-            this.$el.fadeOut(300, function(){$(this).remove();})
+            this.$el.fadeOut(300, function(){
+                $(this).remove();
+            });
+
         }
 
     });

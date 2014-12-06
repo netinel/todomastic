@@ -26,7 +26,17 @@ todoMastic.collections = todoMastic.collections || {};
         showItem: function(event){
 
             event.preventDefault();
+
             this.$el.toggleClass('todo-list-show');
+
+            if(this.$el.hasClass('todo-list-show')){
+
+                var noteView = new todoMastic.views.notesView({
+                    collection: todoMastic.notes, tagId: $(event.target).attr('id')
+                });
+
+                this.$el.find('ul').replaceWith(noteView.render().el);
+            }
 
         },
 

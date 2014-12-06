@@ -18,6 +18,7 @@ var todoMastic = todoMastic || {};
         note: function(){
             todoMastic.events.trigger('activeTab:active', 0);
             todoMastic.events.trigger('showTags:show');
+            todoMastic.events.trigger('loadNotes:load');
             UITools.showSideBar(function(){});
             todoMastic.actionType = 'Note';
         },
@@ -31,6 +32,7 @@ var todoMastic = todoMastic || {};
         showNote: function(id){
             todoMastic.events.trigger('activeTab:active', 0);
             todoMastic.events.trigger('showTags:show');
+            todoMastic.events.trigger('loadNotes:load');
             todoMastic.events.trigger('showNote:load', id);
             UITools.showSideBar(function(){});
             todoMastic.actionType = 'Note';
@@ -49,6 +51,7 @@ var todoMastic = todoMastic || {};
         newNote: function(){
             todoMastic.events.trigger('activeTab:active', 0);
             todoMastic.events.trigger('showTags:show');
+            todoMastic.events.trigger('loadNotes:load');
             UITools.showSideBar(function(){});
             todoMastic.actionType = 'Note';
             todoMastic.events.trigger('crateNewNote:show');
