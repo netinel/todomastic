@@ -10,7 +10,7 @@ todoMastic.events = todoMastic.events || {};
 
         initialize: function(){
 
-            _.bindAll(this, "show");
+            _.bindAll(this, 'updateContent', 'show');
             todoMastic.events.on('crateNewNote:show', this.show, this);
             todoMastic.events.on('showNote:load', this.load, this);
             todoMastic.events.on('showTags:add', this.addTags, this);
@@ -32,6 +32,13 @@ todoMastic.events = todoMastic.events || {};
 
         show: function(){
 
+            this.model = new todoMastic.models.note();
+            this.updateContent();
+
+        },
+
+        updateContent: function(){
+
             $('.todo-main-content').html(this.render().el);
             $('.note-message').jqte();
             this.addTags();
@@ -42,7 +49,7 @@ todoMastic.events = todoMastic.events || {};
 
             this.model = new todoMastic.models.note({id: noteId});
             this.model.fetch({
-                success: this.show
+                success: this.updateContent
             });
 
         },

@@ -26,6 +26,11 @@ todoMastic.events = todoMastic.events || {};
 
         createNewItem : function(event){
             event.preventDefault();
+
+            if(todoMastic.actionType == 'Note'){
+                todoMastic.TodoRouter.navigate('new-note', {trigger: true});
+            }
+
         },
 
         logout : function(event){
