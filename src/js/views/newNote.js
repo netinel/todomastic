@@ -69,16 +69,39 @@ todoMastic.events = todoMastic.events || {};
 
         save: function(){
 
-            this.model.set({
-                id: new Date().getTime(),
-                title: this.$el.find('.note-title input').val(),
-                tagId: this.$el.find('.note-tag option:selected').attr('id'),
-                note: this.$el.find('.note-message').val(),
-                noteId: new Date().getTime(),
-                type: 'notetag'
+            var modelId = this.model.get('id');
+            var currentNote = todoMastic.notes.where({
+                noteId: modelId.toString()
             });
+            var model = {};
 
-            todoMastic.notes.push(this.model);
+            if(currentNote.length > 0){
+
+                model = currentNote[0];
+
+                model.set({
+                    title: this.$el.find('.note-title input').val(),
+                    tagId: this.$el.find('.note-tag option:selected').attr('id').toString(),
+                    note: this.$el.find('.note-message').val()
+                });
+
+            }
+            else{
+
+                this.model.set({
+                    id: new Date().getTime().toString(),
+                    title: this.$el.find('.note-title input').val(),
+                    tagId: this.$el.find('.note-tag option:selected').attr('id').toString(),
+                    note: this.$el.find('.note-message').val(),
+                    noteId: new Date().getTime(),
+                    type: 'notetag'
+                });
+
+                model = this.model;
+
+            }
+
+            todoMastic.notes.push(model);
 
         }
 
