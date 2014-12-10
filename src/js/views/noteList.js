@@ -13,13 +13,29 @@ todoMastic.collections = todoMastic.collections || {};
 
         initialize: function(){
 
+            todoMastic.events.on('showList:render', this.showList, this);
             _.bindAll(this, "render");
 
         },
 
         render: function() {
 
+            this.$el.empty();
+
+            this.collection.each(function(noteLineItem){
+
+                var modelView = new todoMastic.views.noteQuickView({model: noteLineItem});
+                this.$el.append(modelView.render().el.childNodes);
+
+            }, this);
+
             return this;
+
+        },
+
+        showList: function(){
+
+            $('.todo-main-content').html(this.render().el);
 
         }
 

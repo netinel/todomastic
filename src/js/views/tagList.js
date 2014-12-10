@@ -11,7 +11,7 @@ todoMastic.collections = todoMastic.collections || {};
 
         initialize: function(option){
             this.currentTagid = option.currentTagid;
-            _.bindAll(this, "render");
+            _.bindAll(this, 'render', 'getCurrentTag');
         },
 
         events: {
@@ -31,6 +31,16 @@ todoMastic.collections = todoMastic.collections || {};
             this.$el.html(this.template(tagsList));
 
             return this;
+
+        },
+
+        getCurrentTag: function(tagId){
+
+            var tag = this.collection.where({
+                id: tagId.toString()
+            });
+
+            return tag;
 
         }
 

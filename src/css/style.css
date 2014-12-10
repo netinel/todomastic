@@ -458,3 +458,25 @@ body {
   background: #4a405e;
   color: #ffffff;
 }
+
+/*
+*
+*/
+
+.note-list{
+  padding: 30px;
+}
+
+.note-list .note-item{
+  background: #fff;
+  margin-bottom: 10px;
+}
+
+.note-list .note-item h3{
+  margin: 0px;
+}
+
+.note-list .note-action{
+  background: #f8f8f8;
+  width: 100%;
+}
