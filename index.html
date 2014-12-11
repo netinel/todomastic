@@ -13,14 +13,16 @@
 </head>
 <body>
     <script type="text/template" id="note-quick-view">
-        <div class="note-item" data-id="<%= id %>">
-            <h3><%= title %></h3>
+        <div class="note-item" data-id="<%= noteId %>">
+            <div class="note-view">
+                <h3><%= title %></h3>
+                <a href="" class="remove-note">d</a>
+            </div>
             <div class="note-action">
-                <div>
+                <div class="note-date">
                     <% var noteData = new Date(parseInt(date)); %>
                     <span class="month-day-year"><%= (noteData.getMonth() + 1) %>/<%= noteData.getDate() %>/<%= noteData.getFullYear() %></span>
                 </div>
-                <a href="" class="remove-note">Remove</a>
             </div>
         </div>
     </script>

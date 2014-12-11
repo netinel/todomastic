@@ -18,8 +18,11 @@ var todoMastic = todoMastic || {};
         note: function(){
             todoMastic.events.trigger('activeTab:active', 0);
             todoMastic.events.trigger('showTags:show');
-            todoMastic.events.trigger('loadNotes:load');
-            todoMastic.events.trigger('showList:render');
+
+            todoMastic.events.trigger('loadNotes:load', function(){
+                todoMastic.events.trigger('showList:render');
+            });
+
             UITools.showSideBar(function(){});
             todoMastic.actionType = 'Note';
         },

@@ -14,7 +14,7 @@
 * SideBar.......................
 * NavAction.....................
 * ListElem......................
-*
+* note-quick-view...............
 */
 .size {
   height: 100%;
@@ -460,7 +460,7 @@ body {
 }
 
 /*
-*
+* #note-quick-view
 */
 
 .note-list{
@@ -470,13 +470,65 @@ body {
 .note-list .note-item{
   background: #fff;
   margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.note-list .note-view{
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
+}
+
+.note-list .note-view:hover{
+  cursor: pointer;
+  background: #4a405e;
+}
+
+.note-list .note-view:hover h3{
+  color: #ffffff;
+}
+
+.note-list .note-view:hover a{
+  color: #ffffff;
 }
 
 .note-list .note-item h3{
   margin: 0px;
+  color: #4a405e;
+  font-size: 18px;
+  font-weight: normal;
+  display: block;
+  float: left;
+  padding: 15px;
 }
 
 .note-list .note-action{
   background: #f8f8f8;
   width: 100%;
+}
+
+.note-list .note-action{
+  overflow: hidden;
+}
+
+.note-list .remove-note{
+  float: right;
+}
+
+.note-list .remove-note{
+  font-family: 'icomoon';
+  text-decoration: none;
+  font-size: 28px;
+  margin: 12px;
+}
+
+.note-list .note-date{
+  float: left;
+  padding: 8px;
+  padding-left: 15px;
+}
+
+.note-list .month-day-year{
+  font-size: 12px;
+  color: #b1b0b3;
 }

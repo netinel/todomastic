@@ -24,9 +24,13 @@ todoMastic.events = todoMastic.events || {};
 
         },
 
-        load: function(){
+        load: function(onFetch){
 
-            this.fetch();
+            $.when(this.fetch()).done(function(){
+                if(onFetch){
+                    onFetch();
+                }
+            });
 
         }
 

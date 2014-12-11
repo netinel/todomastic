@@ -10,7 +10,8 @@ todoMastic.collections = todoMastic.collections || {};
         template: _.template($('#note-quick-view').html()),
 
         events: {
-            'click .note-item': 'showNote'
+            'click .note-view': 'showNote',
+            'click .remove-note': 'removeNote'
         },
 
         render: function() {
@@ -23,6 +24,13 @@ todoMastic.collections = todoMastic.collections || {};
         showNote: function(event){
             event.preventDefault();
 
+            var route = 'note/' + $(event.target).parent().data('id');
+            todoMastic.TodoRouter.navigate(route, {trigger: true});
+
+        },
+
+        removeNote: function(event){
+            event.preventDefault();
         }
 
     });

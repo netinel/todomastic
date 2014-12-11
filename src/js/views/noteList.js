@@ -25,7 +25,7 @@ todoMastic.collections = todoMastic.collections || {};
             this.collection.each(function(noteLineItem){
 
                 var modelView = new todoMastic.views.noteQuickView({model: noteLineItem});
-                this.$el.append(modelView.render().el.childNodes);
+                this.$el.append(modelView.render().el);
 
             }, this);
 
