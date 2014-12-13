@@ -24,7 +24,7 @@ todoMastic.collections = todoMastic.collections || {};
         showNote: function(event){
             event.preventDefault();
 
-            var route = 'note/' + $(event.target).parent().data('id');
+            var route = 'note/' + this.model.get('noteId');
             todoMastic.TodoRouter.navigate(route, {trigger: true});
 
         },
