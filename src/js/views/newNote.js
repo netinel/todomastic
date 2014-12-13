@@ -41,6 +41,7 @@ todoMastic.events = todoMastic.events || {};
 
             $('.todo-main-content').html(this.render().el);
             $('.note-message').jqte();
+            this.delegateEvents();
             this.addTags();
 
         },
@@ -68,7 +69,7 @@ todoMastic.events = todoMastic.events || {};
         },
 
         save: function(){
-
+            
             var modelId = this.model.get('id');
             var currentNote = todoMastic.notes.where({
                 noteId: modelId.toString()

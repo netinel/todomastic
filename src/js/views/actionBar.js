@@ -27,8 +27,10 @@ todoMastic.events = todoMastic.events || {};
         createNewItem : function(event){
             event.preventDefault();
 
+            var URL = 'new-note/' + (new Date().getTime());
+
             if(todoMastic.actionType == 'Note'){
-                todoMastic.TodoRouter.navigate('new-note', {trigger: true});
+                todoMastic.TodoRouter.navigate(URL, {trigger: true, replace: true});
             }
 
         },

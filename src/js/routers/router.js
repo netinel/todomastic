@@ -10,7 +10,7 @@ var todoMastic = todoMastic || {};
             "note/:id": "showNote",
             "todo/:id": "showTodo",
             "settings": "settings",
-            "new-note": "newNote",
+            "new-note/:id": "newNote",
             "new-todo": "newTodo",
             "": "home"
         },
