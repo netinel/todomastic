@@ -24,13 +24,22 @@ todoMastic.collections = todoMastic.collections || {};
         showNote: function(event){
             event.preventDefault();
 
-            var route = 'note/' + this.model.get('noteId');
-            todoMastic.TodoRouter.navigate(route, {trigger: true});
+            if(!$(event.target).is('a')){
+                var route = 'note/' + this.model.get('noteId');
+                todoMastic.TodoRouter.navigate(route, {trigger: true});
+            }
 
         },
 
         removeNote: function(event){
             event.preventDefault();
+
+            var noteId = this.model.get('noteId');
+
+            this.$el.fadeOut(300, function(){
+                todoMastic.events.trigger('removeItem:remove', noteId);
+            });
+
         }
 
     });

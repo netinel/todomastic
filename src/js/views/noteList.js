@@ -14,6 +14,7 @@ todoMastic.collections = todoMastic.collections || {};
         initialize: function(){
 
             todoMastic.events.on('showList:render', this.showList, this);
+            todoMastic.events.on('removeItem:remove', this.removeItem, this);
             _.bindAll(this, "render");
 
         },
@@ -36,6 +37,13 @@ todoMastic.collections = todoMastic.collections || {};
         showList: function(){
 
             $('.todo-main-content').html(this.render().el);
+
+        },
+
+        removeItem: function(noteId){
+
+            var note = this.collection.where({noteId: noteId});
+            this.collection.remove(note);
 
         }
 
