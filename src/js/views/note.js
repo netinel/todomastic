@@ -1,9 +1,4 @@
-var todoMastic = todoMastic || {};
-todoMastic.models = todoMastic.models || {};
-todoMastic.views = todoMastic.views || {};
-todoMastic.collections = todoMastic.collections || {};
-
-(function(){
+define(['jquery', 'underscore', 'backbone'], function($, _, Backbone){
 
     var note = Backbone.View.extend({
 
@@ -21,7 +16,6 @@ todoMastic.collections = todoMastic.collections || {};
 
     });
 
-    todoMastic.views.note = note;
-    todoMastic.noteView = new note();
+    return note;
 
-}());
+});

@@ -1,9 +1,4 @@
-var todoMastic = todoMastic || {};
-todoMastic.models = todoMastic.models || {};
-todoMastic.views = todoMastic.views || {};
-todoMastic.collections = todoMastic.collections || {};
-
-(function(){
+define(['jquery', 'underscore', 'backbone', 'events/events'], function($, _, Backbone, events){
 
     var noteQuickView = Backbone.View.extend({
 
@@ -14,8 +9,12 @@ todoMastic.collections = todoMastic.collections || {};
             'click .remove-note': 'removeNote'
         },
 
-        render: function() {
+        initialize: function(option){
+            this.router = option.router;
+        },
 
+        render: function() {
+            
             this.$el.html(this.template(this.model.toJSON()));
             return this;
 
@@ -26,7 +25,7 @@ todoMastic.collections = todoMastic.collections || {};
 
             if(!$(event.target).is('a')){
                 var route = 'note/' + this.model.get('noteId');
-                todoMastic.TodoRouter.navigate(route, {trigger: true});
+                this.router.navigate(route, {trigger: true});
             }
 
         },
@@ -37,14 +36,13 @@ todoMastic.collections = todoMastic.collections || {};
             var noteId = this.model.get('noteId');
 
             this.$el.fadeOut(300, function(){
-                todoMastic.events.trigger('removeItem:remove', noteId);
+                events.trigger('removeItem:remove', noteId);
             });
 
         }
 
     });
 
-    todoMastic.views.noteQuickView = noteQuickView;
-    todoMastic.noteQuickView = new noteQuickView();
+    return noteQuickView;
 
-}());
+});

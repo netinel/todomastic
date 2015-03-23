@@ -1,11 +1,7 @@
-var todoMastic = todoMastic || {};
-todoMastic.models = todoMastic.models || {};
-todoMastic.views = todoMastic.views || {};
-todoMastic.collections = todoMastic.collections || {};
-todoMastic.events = todoMastic.events || {};
+define(['jquery', 'underscore', 'backbone'], function($, _, Backbone){
 
-(function(){
+    var events = _.extend({}, Backbone.Events);
 
-    todoMastic.events = _.extend({}, Backbone.Events);
+    return events;
 
-}());
+});

@@ -1,9 +1,4 @@
-var todoMastic = todoMastic || {};
-todoMastic.models = todoMastic.models || {};
-todoMastic.views = todoMastic.views || {};
-todoMastic.collections = todoMastic.collections || {};
-
-(function(){
+define(['jquery', 'underscore', 'backbone', 'collections/tag/tags', 'events/events'], function($, _, Backbone, Tags, events){
 
     var newTag = Backbone.View.extend({
 
@@ -65,7 +60,10 @@ todoMastic.collections = todoMastic.collections || {};
             event.preventDefault();
 
             this.model.set({'id': new Date().getTime()});
-            todoMastic.todoTagsCollection.push(this.model);
+            Tags.push(this.model);
+
+            events.trigger('tags:updateList');
+
             this.$el.fadeOut(300, function(){
                 $(this).remove();
             });
@@ -74,6 +72,6 @@ todoMastic.collections = todoMastic.collections || {};
 
     });
 
-    todoMastic.views.newTag = newTag;
+    return newTag;
 
-}());
+});

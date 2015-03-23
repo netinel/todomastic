@@ -1,20 +1,14 @@
-var todoMastic = todoMastic || {};
-todoMastic.models = todoMastic.models || {};
-todoMastic.views = todoMastic.views || {};
-todoMastic.collections = todoMastic.collections || {};
-todoMastic.events = todoMastic.events || {};
-
-(function(){
+define(['jquery', 'underscore', 'backbone', 'models/note/note', 'events/events'], function($, _, Backbone, note, events){
 
     var notes = Backbone.Collection.extend({
 
-        model: todoMastic.models.note,
+        model: note,
 
         url: 'http://api.onebackend.com/index/notestag',
 
         initialize: function(){
 
-            todoMastic.events.on('loadNotes:load', this.load, this);
+            events.on('loadNotes:load', this.load, this);
 
         },
 
@@ -36,7 +30,6 @@ todoMastic.events = todoMastic.events || {};
 
     });
 
-    todoMastic.collections.notes = notes;
-    todoMastic.notes = new notes();
+    return new notes();
 
-})();
+});

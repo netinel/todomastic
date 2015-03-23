@@ -1,19 +1,13 @@
-var todoMastic = todoMastic || {};
-todoMastic.models = todoMastic.models || {};
-todoMastic.views = todoMastic.views || {};
-todoMastic.collections = todoMastic.collections || {};
-todoMastic.events = todoMastic.events || {};
-
-(function(){
+define(['jquery', 'underscore', 'backbone', 'events/events', 'models/note/note', 'views/tag/tagList', 'collections/note/notes'], function($, _, Backbone, events, Note, TagList, Notes){
 
     var newNoteView = Backbone.View.extend({
 
         initialize: function(){
 
             _.bindAll(this, 'updateContent', 'show');
-            todoMastic.events.on('crateNewNote:show', this.show, this);
-            todoMastic.events.on('showNote:load', this.load, this);
-            todoMastic.events.on('showTags:add', this.addTags, this);
+            events.on('crateNewNote:show', this.show, this);
+            events.on('showNote:load', this.load, this);
+            events.on('showTags:add', this.addTags, this);
 
         },
 
@@ -32,7 +26,7 @@ todoMastic.events = todoMastic.events || {};
 
         show: function(){
 
-            this.model = new todoMastic.models.note();
+            this.model = new Note();
             this.updateContent();
 
         },
@@ -40,7 +34,7 @@ todoMastic.events = todoMastic.events || {};
         updateContent: function(){
 
             $('.todo-main-content').html(this.render().el);
-            $('.note-message').jqte();
+            //$('.note-message').jqte();
             this.delegateEvents();
             this.addTags();
 
@@ -48,7 +42,7 @@ todoMastic.events = todoMastic.events || {};
 
         load: function(noteId){
 
-            this.model = new todoMastic.models.note({id: noteId});
+            this.model = new Note({id: noteId});
             this.model.fetch({
                 success: this.updateContent
             });
@@ -59,8 +53,8 @@ todoMastic.events = todoMastic.events || {};
 
             var tagId = this.model.get('tagId') || 0;
 
-            var tags = new todoMastic.tagsListView({
-                collection: todoMastic.todoTagsCollection,
+            var tags = new TagList({
+                //collection: todoMastic.todoTagsCollection,
                 currentTagid: tagId
             });
 
@@ -69,11 +63,12 @@ todoMastic.events = todoMastic.events || {};
         },
 
         save: function(){
-            
+
             var modelId = this.model.get('id');
-            var currentNote = todoMastic.notes.where({
+            var currentNote = Notes.where({
                 noteId: modelId.toString()
             });
+
             var model = {};
 
             if(currentNote.length > 0){
@@ -102,13 +97,15 @@ todoMastic.events = todoMastic.events || {};
 
             }
 
-            todoMastic.notes.push(model);
+            Notes.push(model);
 
         }
 
     });
 
-    todoMastic.views.newNoteView = newNoteView;
-    todoMastic.views.noteView = new newNoteView({model: todoMastic.note});
+    //todoMastic.views.newNoteView = newNoteView;
+    //todoMastic.views.noteView = new newNoteView({model: todoMastic.note});
 
-}());
+    return new newNoteView();
+
+});

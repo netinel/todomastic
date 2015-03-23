@@ -1,8 +1,6 @@
-var todoMastic = todoMastic || {};
+define(['jquery', 'backbone', 'events/events', 'UITools', 'navigationView', 'views/tag/tags', 'views/note/noteList', 'views/note/newNote'], function($, Backbone, events, UITools, navigationView, tagsView, noteList, newNote){
 
-(function(){
-
-    var TodoRouter = Backbone.Router.extend({
+    var TodoMasticRouter = Backbone.Router.extend({
 
         routes: {
             "note": "note",
@@ -16,53 +14,57 @@ var todoMastic = todoMastic || {};
         },
 
         note: function(){
-            todoMastic.events.trigger('activeTab:active', 0);
-            todoMastic.events.trigger('showTags:show');
+            events.trigger('activeTab:active', 0);
+            events.trigger('tags:show', this);
+            events.trigger('showNotes:render', this);
 
-            todoMastic.events.trigger('loadNotes:load', function(){
-                todoMastic.events.trigger('showList:render');
-            });
+            //events.trigger('showTags:show');
+            /*events.trigger('loadNotes:load', function(){
+                events.trigger('showList:render');
+            });*/
 
             UITools.showSideBar(function(){});
-            todoMastic.actionType = 'Note';
+            //todoMastic.actionType = 'Note';
         },
 
         todo: function(){
-            todoMastic.events.trigger('activeTab:active', 1);
+            /*events.trigger('activeTab:active', 1);
             UITools.showSideBar(function(){});
-            todoMastic.actionType = 'Todo';
+            todoMastic.actionType = 'Todo';*/
         },
 
         showNote: function(id){
-            todoMastic.events.trigger('activeTab:active', 0);
-            todoMastic.events.trigger('showTags:show');
-            todoMastic.events.trigger('loadNotes:load');
-            todoMastic.events.trigger('showNote:load', id);
+            events.trigger('activeTab:active', 0);
+            events.trigger('tags:show', this);
+            events.trigger('showNotes:render', this);
+            events.trigger('showNote:load', id);
+            /*events.trigger('showTags:show');
+            events.trigger('loadNotes:load');*/
             UITools.showSideBar(function(){});
-            todoMastic.actionType = 'Note';
+            //todoMastic.actionType = 'Note';
         },
 
         showTodo: function(id){
-            todoMastic.actionType = 'Todo';
+            //todoMastic.actionType = 'Todo';
         },
 
         settings: function(){
-            todoMastic.events.trigger('activeTab:active', 2);
+            /*events.trigger('activeTab:active', 2);
             UITools.showSideBar(function(){});
-            todoMastic.actionType = 'Settings';
+            todoMastic.actionType = 'Settings';*/
         },
 
         newNote: function(){
-            todoMastic.events.trigger('activeTab:active', 0);
-            todoMastic.events.trigger('showTags:show');
-            todoMastic.events.trigger('loadNotes:load');
+            /*events.trigger('activeTab:active', 0);
+            events.trigger('showTags:show');
+            events.trigger('loadNotes:load');
             UITools.showSideBar(function(){});
             todoMastic.actionType = 'Note';
-            todoMastic.events.trigger('crateNewNote:show');
+            events.trigger('crateNewNote:show');*/
         },
 
         newTodo: function(){
-            todoMastic.actionType = 'Todo';
+            //todoMastic.actionType = 'Todo';
         },
 
         home: function(){
@@ -71,6 +73,6 @@ var todoMastic = todoMastic || {};
 
     });
 
-    todoMastic.TodoRouter = new TodoRouter();
+    return new TodoMasticRouter();
 
-})();
+});

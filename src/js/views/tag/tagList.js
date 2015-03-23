@@ -1,9 +1,4 @@
-var todoMastic = todoMastic || {};
-todoMastic.models = todoMastic.models || {};
-todoMastic.views = todoMastic.views || {};
-todoMastic.collections = todoMastic.collections || {};
-
-(function(){
+define(['jquery', 'underscore', 'backbone', 'collections/tag/tags'], function($, _, Backbone, Tags){
 
     var tagsListView = Backbone.View.extend({
 
@@ -14,17 +9,14 @@ todoMastic.collections = todoMastic.collections || {};
             _.bindAll(this, 'render', 'getCurrentTag');
         },
 
-        events: {
-        },
-
         render: function() {
 
             var tagsList = {
                 tag: this.currentTagid,
                 list: []
-            }
+            };
 
-            this.collection.each(function(tagLineItem){
+            Tags.each(function(tagLineItem){
                 tagsList.list.push(tagLineItem.toJSON());
             });
 
@@ -36,7 +28,7 @@ todoMastic.collections = todoMastic.collections || {};
 
         getCurrentTag: function(tagId){
 
-            var tag = this.collection.where({
+            var tag = Tags.where({
                 id: tagId.toString()
             });
 
@@ -46,6 +38,6 @@ todoMastic.collections = todoMastic.collections || {};
 
     });
 
-    todoMastic.tagsListView = tagsListView;
+    return tagsListView;
 
-}());
+});

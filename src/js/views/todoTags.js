@@ -1,9 +1,4 @@
-var todoMastic = todoMastic || {};
-todoMastic.models = todoMastic.models || {};
-todoMastic.views = todoMastic.views || {};
-todoMastic.collections = todoMastic.collections || {};
-
-(function(){
+define(['jquery', 'underscore', 'backbone', '../collections/tag/tags', '../models/tag/tag', 'tag/todoTag', 'tag/newTag'], function($, _, Backbone, todoTags, tagModel, todoTag, newTag){
 
     var tagsView = Backbone.View.extend({
 
@@ -13,13 +8,16 @@ todoMastic.collections = todoMastic.collections || {};
             'click .add-new-tag': 'addTag'
         },
 
+        initialize: function(){
+            console.log(this.collection);
+        },
+
         render: function() {
 
             this.$el.find('.tag-node').remove();
-
             this.collection.each(function(tagLineItem){
 
-                var modelView = new todoMastic.views.todoTagView({model: tagLineItem});
+                var modelView = new todoTag({model: tagLineItem});
                 this.$el.find('.tag-content').append(modelView.render().el);
 
             }, this);
@@ -29,12 +27,12 @@ todoMastic.collections = todoMastic.collections || {};
 
         addTag: function(event){
             event.preventDefault();
-            todoMastic.newTag = new todoMastic.views.newTag({model:  new todoMastic.models.todoMastic()});
-            $('.todo-app').append(todoMastic.newTag.render().el);
+            var tag = new newTag({model: new tagModel});
+            $('.todo-app').append(tag.render().el);
         }
 
     });
 
-    todoMastic.tagView = new tagsView({collection: todoMastic.todoTagsCollection});
+    return new tagsView({collection: tags});
 
-}());
+});

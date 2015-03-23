@@ -1,18 +1,12 @@
-var todoMastic = todoMastic || {};
-todoMastic.models = todoMastic.models || {};
-todoMastic.views = todoMastic.views || {};
-todoMastic.collections = todoMastic.collections || {};
-todoMastic.events = todoMastic.events || {};
-
-(function(){
+define(['jquery', 'underscore', 'backbone', 'events/events'], function($, _, Backbone, events){
 
     var navigationView = Backbone.View.extend({
 
         el: '#todo-nav',
 
         initialize: function(){
-            
-            todoMastic.events.on('activeTab:active', this.active, this);
+
+            events.on('activeTab:active', this.active, this);
 
         },
 
@@ -26,7 +20,6 @@ todoMastic.events = todoMastic.events || {};
 
     });
 
-    todoMastic.views.navigationView = navigationView;
-    todoMastic.views.navigationView = new navigationView();
+    return new navigationView();
 
-}());
+});

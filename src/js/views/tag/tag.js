@@ -1,11 +1,6 @@
-var todoMastic = todoMastic || {};
-todoMastic.models = todoMastic.models || {};
-todoMastic.views = todoMastic.views || {};
-todoMastic.collections = todoMastic.collections || {};
+define(['jquery', 'underscore', 'backbone', 'router', 'views/notes', 'collections/note/notes'], function($, _, Backbone, router, notesView, notes){
 
-(function(){
-
-    var todoTagView = Backbone.View.extend({
+    var tagView = Backbone.View.extend({
 
         template: _.template($('#todo-tag').html()),
 
@@ -14,6 +9,10 @@ todoMastic.collections = todoMastic.collections || {};
         events: {
             'click a.list-item' : 'showItem',
             'click li' : 'viewNote'
+        },
+
+        initialize: function(option){
+            this.router = option.router;
         },
 
         render: function() {
@@ -31,8 +30,9 @@ todoMastic.collections = todoMastic.collections || {};
 
             if(this.$el.hasClass('todo-list-show')){
 
-                var noteView = new todoMastic.views.notesView({
-                    collection: todoMastic.notes, tagId: $(event.target).attr('id')
+                var noteView = new notesView({
+                    collection: notes,
+                    tagId: $(event.target).attr('id')
                 });
 
                 this.$el.find('ul').replaceWith(noteView.render().el);
@@ -43,13 +43,12 @@ todoMastic.collections = todoMastic.collections || {};
         viewNote: function(event){
 
             var route = 'note/' + $(event.target).attr('id');
-            todoMastic.TodoRouter.navigate(route, {trigger: true});
+            this.router.navigate(route, {trigger: true});
 
         }
 
     });
 
-    todoMastic.views.todoTagView = todoTagView;
-    todoMastic.todoTagView = new todoTagView();
+    return tagView;
 
-}());
+});

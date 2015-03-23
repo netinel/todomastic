@@ -1,9 +1,4 @@
-var todoMastic = todoMastic || {};
-todoMastic.models = todoMastic.models || {};
-todoMastic.views = todoMastic.views || {};
-todoMastic.collections = todoMastic.collections || {};
-
-(function(){
+define(['jquery', 'underscore', 'backbone', 'views/note'], function($, _, Backbone, noteView){
 
     var notesView = Backbone.View.extend({
 
@@ -22,7 +17,7 @@ todoMastic.collections = todoMastic.collections || {};
 
             _.each(this.collection.getNotesByTagId(tagId), function(noteLineItem){
 
-                var modelView = new todoMastic.views.note({model: noteLineItem});
+                var modelView = new noteView({model: noteLineItem});
                 this.$el.append(modelView.render().el.childNodes);
 
             }, this);
@@ -31,7 +26,6 @@ todoMastic.collections = todoMastic.collections || {};
         }
     });
 
-    todoMastic.views.notesView = notesView;
-    //todoMastic.notesView = new notesView({collection: todoMastic.notes});
+    return notesView;
 
-}());
+});
