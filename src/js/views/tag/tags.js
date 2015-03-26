@@ -32,7 +32,9 @@ define(['jquery', 'underscore', 'backbone', 'events/events', 'collections/tag/ta
 
             }, this);
 
-            currentList.expendList(listId);
+            if(listId){
+                currentList.expendList(listId);
+            }
 
             return this;
 
@@ -50,8 +52,6 @@ define(['jquery', 'underscore', 'backbone', 'events/events', 'collections/tag/ta
         showList: function(listId){
 
             var activeList = listId || this.activeList;
-            console.log('das');
-            console.log( this.$el.find('a#' + activeList).parents('.tag-node'));
             this.$el.find('a#' + activeList).parents('.tag-node').toggleClass('todo-list-show');
 
         },
