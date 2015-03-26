@@ -18,4 +18,4 @@ define(['jquery'], function($){
 
     return UITools
 
-})
+});

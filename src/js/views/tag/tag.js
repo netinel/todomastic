@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'backbone', 'router', 'views/notes', 'collections/note/notes'], function($, _, Backbone, router, notesView, notes){
+define(['jquery', 'underscore', 'backbone', 'router', 'views/notes', 'collections/note/notes', 'events/events'], function($, _, Backbone, router, notesView, notes, events){
 
     var tagView = Backbone.View.extend({
 
@@ -25,6 +25,11 @@ define(['jquery', 'underscore', 'backbone', 'router', 'views/notes', 'collection
         showItem: function(event){
 
             event.preventDefault();
+            this.expendList();
+
+        },
+
+        expendList: function(){
 
             this.$el.toggleClass('todo-list-show');
 
@@ -32,7 +37,7 @@ define(['jquery', 'underscore', 'backbone', 'router', 'views/notes', 'collection
 
                 var noteView = new notesView({
                     collection: notes,
-                    tagId: $(event.target).attr('id')
+                    tagId: this.$el.find('a').attr('id')
                 });
 
                 this.$el.find('ul').replaceWith(noteView.render().el);
@@ -41,8 +46,10 @@ define(['jquery', 'underscore', 'backbone', 'router', 'views/notes', 'collection
         },
 
         viewNote: function(event){
+            event.preventDefault();
 
-            var route = 'note/' + $(event.target).attr('id');
+            var listId = $(event.target).parents('.todo-list-elem').find('a').attr('id');
+            var route = 'note/' + $(event.target).attr('id') + '/' + listId;
             this.router.navigate(route, {trigger: true});
 
         }
