@@ -35,8 +35,8 @@ define(['jquery', 'backbone', 'events/events', 'UITools', 'navigationView', 'vie
 
         showNote: function(id, listId){
             events.trigger('activeTab:active', 0);
-            events.trigger('tags:show', this, listId);
-            events.trigger('showNotes:render', this);
+            events.trigger('tags:show', this);
+            events.trigger('loadNotes:load', this);
             events.trigger('showNote:load', id);
             events.trigger('list:show', listId);
             /*events.trigger('showTags:show');

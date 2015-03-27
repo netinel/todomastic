@@ -34,7 +34,7 @@ define(['jquery', 'underscore', 'backbone', 'events/events', 'models/note/note',
         updateContent: function(){
 
             $('.todo-main-content').html(this.render().el);
-            //$('.note-message').jqte();
+            $('.note-message').jqte();
             this.delegateEvents();
             this.addTags();
 

@@ -4,12 +4,17 @@ define(['jquery', 'underscore', 'backbone', 'events/events', 'collections/note/n
 
         tagName: 'div',
 
+        attributes: {
+            'data-listId': ''
+        },
+
         className: 'note-list',
 
         initialize: function(){
             events.on('showList:render', this.showList, this);
             events.on('showNotes:render', this.showList, this);
             events.on('removeItem:remove', this.removeItem, this);
+            events.on('loadNotes:load', this.loadNotes, this);
             _.bindAll(this, "render");
 
         },
@@ -29,6 +34,10 @@ define(['jquery', 'underscore', 'backbone', 'events/events', 'collections/note/n
 
             return this;
 
+        },
+
+        loadNotes: function(router){
+            Notes.fetch({reset:true, router: router});
         },
 
         showList: function(router){
