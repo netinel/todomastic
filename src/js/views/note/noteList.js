@@ -47,6 +47,7 @@ define(['jquery', 'underscore', 'backbone', 'events/events', 'collections/note/n
 
             Notes.fetch({reset:true, router: router}).done(function(data, textStatus, jqXHR){
                 $('.todo-main-content').html(_this.render(router).el);
+                _this.attributes['data-listId'] = Notes.models[0].attributes.tagId;
             });
 
         },
