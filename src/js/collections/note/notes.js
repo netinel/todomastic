@@ -21,7 +21,7 @@ define(['jquery', 'underscore', 'backbone', 'models/note/note', 'events/events']
         load: function(onFetch){
 
             $.when(this.fetch()).done(function(){
-                if(onFetch){
+                if(typeof onFetch === 'function'){
                     onFetch();
                 }
             });

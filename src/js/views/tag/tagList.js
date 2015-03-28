@@ -1,11 +1,12 @@
-define(['jquery', 'underscore', 'backbone', 'collections/tag/tags'], function($, _, Backbone, Tags){
+define(['jquery', 'underscore', 'backbone', 'collections/tag/tags', 'events/events'], function($, _, Backbone, Tags, events){
 
     var tagsListView = Backbone.View.extend({
 
         template: _.template($('#tags-list').html()),
 
         initialize: function(option){
-            this.currentTagid = option.currentTagid;
+            Tags.currentTagid = option.currentTagid;
+            this.listenTo(Tags, "change reset add remove", this.updateTags);
             _.bindAll(this, 'render', 'getCurrentTag');
         },
 
@@ -34,6 +35,10 @@ define(['jquery', 'underscore', 'backbone', 'collections/tag/tags'], function($,
 
             return tag;
 
+        },
+
+        updateTags: function(){
+            events.trigger('showTags:add', this);
         }
 
     });
