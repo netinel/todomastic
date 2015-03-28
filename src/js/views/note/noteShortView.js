@@ -24,7 +24,7 @@ define(['jquery', 'underscore', 'backbone', 'events/events'], function($, _, Bac
             event.preventDefault();
 
             if(!$(event.target).is('a')){
-                var route = 'note/' + this.model.get('noteId') + '/' + this.model.attributes.tagId;
+                var route = 'note/' + this.model.attributes.tagId + '/' + this.model.get('noteId');
                 this.router.navigate(route, {trigger: true});
             }
 

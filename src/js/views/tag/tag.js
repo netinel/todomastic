@@ -49,7 +49,7 @@ define(['jquery', 'underscore', 'backbone', 'router', 'views/notes', 'collection
             event.preventDefault();
 
             var listId = $(event.target).parents('.todo-list-elem').find('a').attr('id');
-            var route = 'note/' + $(event.target).attr('id') + '/' + listId;
+            var route = 'note/' + listId + '/' + $(event.target).attr('id');
             this.router.navigate(route, {trigger: true});
 
         }

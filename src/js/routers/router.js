@@ -5,7 +5,7 @@ define(['jquery', 'backbone', 'events/events', 'UITools', 'navigationView', 'vie
         routes: {
             "note": "note",
             "todo": "todo",
-            "note/:id/:listId": "showNote",
+            "note/:listId/:id": "showNote",
             "todo/:id": "showTodo",
             "settings": "settings",
             "new-note/:id": "newNote",
@@ -33,7 +33,7 @@ define(['jquery', 'backbone', 'events/events', 'UITools', 'navigationView', 'vie
             todoMastic.actionType = 'Todo';*/
         },
 
-        showNote: function(id, listId){
+        showNote: function(listId, id){
             events.trigger('activeTab:active', 0);
             events.trigger('tags:show', this);
             events.trigger('loadNotes:load', this);
